@@ -625,10 +625,6 @@ diff -q -s <(sed -n '238,576p' $LOG_SERVER) <(sed -n '238,576p' $LOG_EXPECTED)
 
 sleep 1
 echo
-echo "diff entire file"
-diff -q -s <(tail -n 2 $LOG_SERVER) <(tail -n 2 $LOG_EXPECTED)
-
-echo
 echo "Test 6 - stress test"
 echo
 for i in {1..15}
@@ -647,5 +643,11 @@ for i in {1..15}
  █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █
 "
 	done
+diff -q -s <(tail -n 577 $LOG_SERVER) <(tail -n 577 $LOG_EXPECTED)
+
+sleep 1
+echo
+echo "diff entire file"
+diff -q -s <(tail -n 2 $LOG_SERVER) <(tail -n 2 $LOG_EXPECTED)
 
 kill -15 $PID
